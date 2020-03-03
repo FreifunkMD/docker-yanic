@@ -1,4 +1,4 @@
-FROM golang:1.13.1-buster
+FROM golang:1.14
 
 ADD config.toml /etc/yanic.conf
 
@@ -15,4 +15,3 @@ chmod +x /docker-entry.sh
 
 EXPOSE 8080
 CMD ['yanic serve /etc/yanic.conf']
-
