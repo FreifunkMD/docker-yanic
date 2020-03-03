@@ -1,6 +1,6 @@
 FROM golang:1.13.1-buster
 
-ADD docker-entry.sh /
+ADD config.toml /etc/yanic.conf
 
 RUN  apt-get update && \
 apt-get install -y git && \
@@ -13,8 +13,6 @@ apt-get autoremove && \
 apt-get clean && \
 chmod +x /docker-entry.sh
 
-ENTRYPOINT ["/docker-entry.sh"]
 EXPOSE 8080
-
 CMD ['yanic serve /etc/yanic.conf']
 
