@@ -11,7 +11,8 @@ ARG MESHV_DIR=/var/www/html/meshviewer/data
 
 # Create Dirs
 RUN mkdir -p ${LIB_DIR} && \
-mkdir -p ${MESHV_DIR}
+mkdir -p ${MESHV_DIR} && \
+touch ${LOG_DIR}/yanic.log
 
 # Work Dirs
 # WORKDIR /yanic
