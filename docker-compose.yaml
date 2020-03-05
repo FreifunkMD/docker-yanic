@@ -1,8 +1,9 @@
 version: "3"
 services:
   yanic:
-    image: klausdieter371/yanic
+    image: yanic
     network_mode: "host"
     restart: unless-stopped
-    env_file: /root/yanic-docker-env
-
+    container_name: ffmd_yanic
+    volumes:
+      - ./config.toml:/etc/yanic.conf
