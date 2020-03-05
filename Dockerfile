@@ -9,13 +9,11 @@ ARG LOG_DIR=/var/log
 ARG LIB_DIR=/var/lib/yanic
 ARG MESHV_DIR=/var/www/html/meshviewer/data
 
-# Create Dirs
+# Create Dirs and Log Files
 RUN mkdir -p ${LIB_DIR} && \
 mkdir -p ${MESHV_DIR} && \
 touch ${LOG_DIR}/yanic.log
 
-# Work Dirs
-# WORKDIR /yanic
 
 # Enviroment Variables
 ENV LOG_FILE_LOCATION=${LOG_DIR}/yanic.log
@@ -27,7 +25,7 @@ ADD config.toml /etc/yanic.conf
 RUN apt-get update && \
 apt-get install -y git && \
 go get -v -u github.com/FreifunkBremen/yanic &&\
-apt-get -y dist-upgrade && \Update
+apt-get -y dist-upgrade && \
 apt-get autoremove &&\
 apt-get clean
 
