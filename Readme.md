@@ -10,13 +10,20 @@ interface. For example, if mmfd0 is to be used:
 ```
 ip -6 r add ff05::2:1001/128 dev mmfd0 table local
 ```
+# Build
+Build The Container
+```
+docker image build -t yanic .
+```
 
+# Run
 Then run the container:
 
 ```
-export CONFIGURATION="$(cat config.toml)"
-docker run -it -e "CONFIGURATION" --network host yanic
+docker run -d -p 8080:8080 --name=ffmd_yanic -v /etc/config.toml:/etc/yanic.conf:ro--network host yanic
 ```
+# Compose
+ :-D
 
 # License
 
